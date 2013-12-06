@@ -19,7 +19,7 @@ module Rack
       all_opts = @global_options.dup.merge(matcher.options)
       headers = Rack::Utils::HeaderHash.new
       env.each { |key, value|
-        if key =~ /HTTP_(.*)/
+        if key =~ /HTTP_(.*)/ && value != nil
           headers[$1] = value
         end
       }
